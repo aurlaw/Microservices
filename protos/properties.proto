@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.LocationData";
+option java_outer_classname = "LocationDataProto";
+option objc_class_prefix = "LSP";
+
+package locationproxy;
+
+
+// Interface exported by the server.
+service Property {
+
+
+  // Obtains the detail at a given position.
+  //
+  // A detail with an empty name is returned if there's no detail at the given
+  // position.
+  rpc GetDetail(Point) returns (Detail) {}
+
+  // Obtains the detail by name
+  //
+  // A detail with an empty name is returned if there's no detail found.
+  rpc GetDetailByName(DetailRequest) returns (Detail) {}
+    
+}
+
+
+// Points are represented as latitude-longitude pairs in the E7 representation
+// (degrees multiplied by 10**7 and rounded to the nearest integer).
+// Latitudes should be in the range +/- 90 degrees and longitude should be in
+// the range +/- 180 degrees (inclusive).
+message Point {
+    int32 latitude = 1;
+    int32 longitude = 2;
+}
+
+
+// A detail names something at a given point.
+//
+// If a detail could not be named, the name is empty.
+message Detail {
+    // The name of the detail.
+    string name = 1;
+  
+    // The point where the detail is detected.
+    Point location = 2;
+}
+
+// a detail Request 
+message DetailRequest {
+    // the name of the detail
+    string name = 1;
+}
