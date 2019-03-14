@@ -4,7 +4,7 @@ VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocationProxy", "LocationProxy\LocationProxy.csproj", "{13D4D9E9-DB48-4A54-BF20-A582E47AC531}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocationServer", "LocationServer\LocationServer.csproj", "{E1207E45-6331-47E2-BF81-CD85F94FB08D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocationServer", "Services\LocationServer\LocationServer.csproj", "{E1207E45-6331-47E2-BF81-CD85F94FB08D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocationClient", "LocationClient\LocationClient.csproj", "{03C347A1-E4CA-422F-B758-F17490E48414}"
 EndProject

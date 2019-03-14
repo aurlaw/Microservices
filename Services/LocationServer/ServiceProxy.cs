@@ -11,7 +11,7 @@ using Grpc.Core.Utils;
 
 
 using Locationproxy;
-using LocationProxy.Models;
+using LocationServer.Models;
 
 namespace LocationServer
 {

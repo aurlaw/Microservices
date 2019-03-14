@@ -20,7 +20,7 @@ namespace LocationClient
                 Log("*** GetDetail: {0}", name);
                 var request = new DetailRequest{Name = name};
                 var result = await _client.GetDetailByNameAsync(request);
-                Log("detail found with {0}", result.Name);
+                Log("detail found {1} with {0}", result.Name, result.Location != null);
             }
             catch (RpcException e) 
             {
