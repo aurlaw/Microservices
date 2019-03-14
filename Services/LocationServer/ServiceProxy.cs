@@ -10,7 +10,7 @@ using Grpc.Core;
 using Grpc.Core.Utils;
 
 
-using Locationproxy;
+using LocationProxy;
 using LocationServer.Models;
 
 namespace LocationServer

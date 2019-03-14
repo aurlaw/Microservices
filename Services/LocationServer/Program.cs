@@ -39,7 +39,7 @@ namespace LocationServer
 
                     var server = new Server
                     {
-                        Services = {Locationproxy.Property.BindService(new ServiceProxy(locations))},
+                        Services = {LocationProxy.Property.BindService(new ServiceProxy(locations))},
                         Ports = {new ServerPort(host, port, ServerCredentials.Insecure)}
                     };
                     Console.WriteLine($"Location server is listening at {host}:{port}");
@@ -94,7 +94,7 @@ namespace LocationServer
                             int port = options.Port;
                             if (options.Port <= 0)
                             {
-                                Console.WriteLine($"Reading cart service port from {LOCATION_SERVICE_PORT} environment variable");
+                                Console.WriteLine($"Reading service port from {LOCATION_SERVICE_PORT} environment variable");
                                 string portStr = Environment.GetEnvironmentVariable(LOCATION_SERVICE_PORT);
                                 if (string.IsNullOrEmpty(portStr))
                                 {

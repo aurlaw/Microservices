@@ -1,5 +1,5 @@
 using System;
-using Locationproxy;
+using LocationProxy;
 using Grpc.Core;
 using System.Threading.Tasks;
 

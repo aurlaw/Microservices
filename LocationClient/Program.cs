@@ -12,7 +12,7 @@ namespace LocationClient
         static void Main(string[] args)
         {
             var channel = new Channel("127.0.0.1:9222", ChannelCredentials.Insecure);
-            var client = new ClientProxy(new Locationproxy.Property.PropertyClient(channel));
+            var client = new ClientProxy(new LocationProxy.Property.PropertyClient(channel));
 
             // ACME
             client.GetDetailByName("ACME").Wait();

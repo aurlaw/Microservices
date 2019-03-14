@@ -14,10 +14,9 @@
     <PackageReference Include="Grpc.Tools" Version="1.19.0" PrivateAssets="All"/>
   </ItemGroup>
   
-  <ItemGroup>
-   <!-- <Protobuf Include="../../protos/properties.proto" OutputDir="%(RelativePath)" CompileOutputs="false"  />   -->
+  <!-- <ItemGroup>
     <Protobuf Include="../../protos/properties.proto" Link="properties.proto"/>
-  </ItemGroup>
+  </ItemGroup> -->
 
   <ItemGroup>
     <None Update="Dockerfile">
@@ -27,5 +26,26 @@
   <ItemGroup>
     <None Include="loc_data.json" CopyToOutputDirectory="Always" />
   </ItemGroup>
+
+ <Target Name="Protobuf">
+    <PropertyGroup>
+        <PROTOC>../../tools/Grpc.Tools.1.19.0/tools/windows_x64/protoc</PROTOC>
+        <PLUGIN>../../tools/Grpc.Tools.1.19.0/tools/windows_x64/grpc_csharp_plugin</PLUGIN>
+    </PropertyGroup>
+    <PropertyGroup>
+      <ProtoCCommand>%TOOLS_PATH%\protoc.exe -I%~dp0/../../pb;%NUGET_PATH%\google.protobuf.tools\3.5.1\tools\ --csharp_out %~dp0\grpc_generated %~dp0\..\..\pb\demo.proto --grpc_out %~dp0\grpc_generated --plugin=protoc-gen-grpc=%TOOLS_PATH%\grpc_csharp_plugin.exe
+ </ProtoCCommand>
+    </PropertyGroup>
+    <Message Importance="high" Text="$(Protobuf_ProtocFullPath)" />
+    <Message Importance="high" Text="$(gRPC_PluginFullPath)" />
+    <Message Importance="high" Text="$(Protobuf_StandardImportsPath)" />
+    <Exec Command="$(ProtoCCommand)" />
+
+    <!-- <ItemGroup>
+      <Message Importance="high" Text="%(RelativeDir)" />
+    <Protobuf Include="../../protos/properties.proto" OutputDir="%(RelativeDir)/generated" CompileOutputs="false" />
+    </ItemGroup> -->
+ </Target>
+
 
 </Project>

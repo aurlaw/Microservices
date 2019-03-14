@@ -23,8 +23,8 @@ TODO
 
 #### Docker
 ```
-$cd Services\LocationServer
-$docker build -t aurlaw/microservices/locationservice .
-$docker run -it --name=aurlaw/microservices/locationservice --rm -e LISTEN_ADDR=localhost -e PORT=7070 -p 7070:7070 aurlaw/microservices/locationservice
+$ cd Services\LocationServer
+$ docker build -t aurlaw/microservices/locationservice .
+$ docker run -it --name=aurlaw-micro-locationservice --rm -e LISTEN_ADDR=localhost -e PORT=7070 -p 7070:7070 aurlaw/microservices/locationservice
 
 ```
